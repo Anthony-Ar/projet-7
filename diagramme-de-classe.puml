@@ -1,0 +1,61 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam classFontSize 20
+skinparam linetype ortho
+skinparam padding 3
+skinparam shadowing true
+skinparam Ranksep 200
+
+left to right direction
+
+entity Project {
+    name: string
+    startDate: dateTime
+    deadline: dateTime
+    active: boolean
+}
+
+entity Status {
+    name: string
+}
+
+entity Tag {
+    name: string
+}
+
+entity Task {
+    name: string
+    description: string
+    deadline: dateTime
+}
+
+entity User {
+    lastname: string
+    firstname: string
+    email: string
+    password: string
+    role: integer
+    contrat: string
+    contratStartDate: dateTime
+    active: boolean
+}
+
+entity WorkingTime {
+    startDate: dateTime
+    endDate: dateTime
+}
+
+Project "1" -down- "*" Task
+Project "1" -right- "*" Status
+Project "1" -right- "*" Tag
+Project "*" -left- "*" User
+
+User "0..1" -right- "*" Task
+User "1" -- "*" WorkingTime
+
+Task "*" -up- "1" Status
+Task "*" -up- "*" Tag
+Task "1" -down- "*" WorkingTime
+
+@enduml

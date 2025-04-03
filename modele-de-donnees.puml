@@ -1,0 +1,102 @@
+@startuml
+
+!include skinparam.puml
+
+entity Project {
+    -- Primary key --
+    id: int
+    -- Foreign key --
+    user_id: int
+    status_id: int
+    -- Columns --
+    name: vachar
+    start_date: dateTime
+    deadline: dateTime
+    active: tinyint
+}
+
+entity Status {
+    -- Primary key --
+    id: int
+    -- Foreign key --
+    project_id: int
+    -- Columns --
+    name: vachar
+}
+
+entity Tag {
+    -- Primary key --
+    id: int
+    -- Foreign key --
+    project_id: int
+    -- Columns --
+    name: vachar
+}
+
+entity Task {
+    -- Primary key --
+    id: int
+    -- Foreign key --
+    project_id: int
+    user_id: int
+    status_id: int
+    -- Columns --
+    name: vachar
+    description: text
+    deadline: dateTime
+}
+
+entity User {
+    -- Primary key --
+    id: int
+    -- Columns --
+    lastname: vachar
+    first_ame: vachar
+    email: vachar
+    password: vachar
+    role: int
+    contrat: vachar
+    contrat_start_date: dateTime
+    active: tinyint
+}
+
+entity WorkingTime {
+    -- Primary key --
+    id: int
+    -- Foreign key --
+    user_id: int
+    task_id: int
+    -- Columns --
+    start_date: dateTime
+    end_date: dateTime
+}
+
+entity project_user {
+    -- Foreign key --
+    project_id
+    user_id
+}
+
+entity task_tag {
+    -- Foreign key --
+    task_id
+    tag_id
+}
+
+Project -down- Task
+Project -right- Status
+Project -right- Tag
+
+User -right- Task
+User -- WorkingTime
+
+Task -up- Status
+Task -down- WorkingTime
+
+Project -right- project_user
+User - project_user
+
+Task - task_tag
+Tag - task_tag
+
+@enduml
