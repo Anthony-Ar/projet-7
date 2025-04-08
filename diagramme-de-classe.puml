@@ -42,7 +42,6 @@ entity WorkingTime {
 }
 
 Project "1" -down- "*" Task
-Project "1" -right- "*" Status
 Project "1" -right- "*" Tag
 Project "*" -left- "*" User
 

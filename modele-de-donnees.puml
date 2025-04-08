@@ -1,6 +1,7 @@
 @startuml
 
 !include skinparam.puml
+left to right direction
 
 entity Project {
     -- Primary key --
@@ -15,8 +16,6 @@ entity Project {
 entity Status {
     -- Primary key --
     id: int
-    -- Foreign key --
-    project_id: int
     -- Columns --
     name: vachar
 }
@@ -48,7 +47,7 @@ entity User {
     id: int
     -- Columns --
     lastname: vachar
-    first_ame: vachar
+    firstname: vachar
     email: vachar
     password: vachar
     role: int
@@ -81,7 +80,6 @@ entity task_tag {
 }
 
 Project -down- Task
-Project -right- Status
 Project -right- Tag
 
 User -right- Task
