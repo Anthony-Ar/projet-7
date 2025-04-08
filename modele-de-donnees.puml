@@ -5,9 +5,6 @@
 entity Project {
     -- Primary key --
     id: int
-    -- Foreign key --
-    user_id: int
-    status_id: int
     -- Columns --
     name: vachar
     start_date: dateTime
