@@ -16,6 +16,8 @@ entity Project {
 entity Status {
     -- Primary key --
     id: int
+    -- Foreign key --
+    project_id: int
     -- Columns --
     name: vachar
 }
@@ -81,6 +83,7 @@ entity task_tag {
 
 Project -down- Task
 Project -right- Tag
+Project -down- Status
 
 User -right- Task
 User -- WorkingTime
