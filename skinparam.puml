@@ -4,3 +4,5 @@ skinparam linetype ortho
 skinparam padding 3
 skinparam shadowing true
 skinparam Ranksep 200
+hide circle
+left to right direction

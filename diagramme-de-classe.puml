@@ -2,41 +2,43 @@
 
 !include skinparam.puml
 
-left to right direction
+title Diagramme de classe P7
 
-entity Project {
+class Project {
     name: string
     startDate: dateTime
     deadline: dateTime
     active: boolean
 }
 
-entity Status {
+enum Status {
+    TODO
+    DOING
+    DONE
+}
+
+class Tag {
     name: string
 }
 
-entity Tag {
-    name: string
-}
-
-entity Task {
+class Task {
     name: string
     description: string
     deadline: dateTime
 }
 
-entity User {
+class User {
     lastname: string
     firstname: string
     email: string
     password: string
     role: integer
-    contrat: string
-    contratStartDate: dateTime
+    contract: string
+    contractStartDate: dateTime
     active: boolean
 }
 
-entity WorkingTime {
+class WorkingTime {
     startDate: dateTime
     endDate: dateTime
 }

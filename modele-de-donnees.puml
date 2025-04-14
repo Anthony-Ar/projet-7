@@ -1,7 +1,8 @@
 @startuml
 
 !include skinparam.puml
-left to right direction
+
+title Modèle de données P7
 
 entity Project {
     -- Primary key --
@@ -53,8 +54,8 @@ entity User {
     email: vachar
     password: vachar
     role: int
-    contrat: vachar
-    contrat_start_date: dateTime
+    contract: vachar
+    contract_start_date: dateTime
     active: tinyint
 }
 
@@ -91,8 +92,8 @@ User -- WorkingTime
 Task -up- Status
 Task -down- WorkingTime
 
-Project -right- project_user
-User - project_user
+Project -up- project_user
+User -right- project_user
 
 Task - task_tag
 Tag - task_tag
